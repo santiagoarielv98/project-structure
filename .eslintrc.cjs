@@ -11,9 +11,6 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:import/recommended",
-    // "plugin:import/warnings",
-    "plugin:import/typescript",
   ],
   overrides: [
     {
@@ -39,43 +36,11 @@ module.exports = {
       version: "detect",
     },
     "import/resolver": {
-      typescript: true,
+      typescript: {},
     },
   },
-  plugins: ["@typescript-eslint", "react", "react-hooks", "import"],
+  plugins: ["@typescript-eslint", "react", "react-hooks"],
   rules: {
-    "import/order": [
-      "error",
-      {
-        alphabetize: {
-          order: "asc",
-          caseInsensitive: true,
-        },
-        "newlines-between": "always",
-        groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
-        pathGroups: [
-          {
-            pattern: "react",
-            group: "external",
-            position: "before",
-          },
-        ],
-        pathGroupsExcludedImportTypes: ["react"],
-      },
-    ],
-    // Uso exclusivo de export default
-    "import/prefer-default-export": "error",
-    "import/no-named-export": "error",
-    // Definición de componentes React como funciones flecha
-    "react/function-component-definition": [
-      "error",
-      {
-        namedComponents: "arrow-function",
-        unnamedComponents: "arrow-function",
-      },
-    ],
-    // "@typescript-eslint/explicit-function-return-type": "off",
-    // "react/prop-types": "off", // Desactiva la regla de prop-types
-    // "react/react-in-jsx-scope": "error", // Desactiva la regla de react-in-jsx-scope
+    "react/react-in-jsx-scope": "off", // Desactiva la regla de react-in-jsx-scope
   },
 };
